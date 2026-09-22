@@ -424,10 +424,10 @@ const io = new IntersectionObserver((entries)=>{
         fp.setAttribute('filter-lang','en');
         fp.setAttribute('language','en');
         fp.setAttribute('render-mode','new');
-        fp.setAttribute('render-view','listView');
+        fp.setAttribute('render-view','gridView'); // gridView переносит строки, listView — одна строка с затуханием
         fp.setAttribute('render-size', effSize());
-        fp.setAttribute('fg','#15201B');
-        fp.setAttribute('bg','transparent');
+        fp.setAttribute('fg-color','#15201B');
+        fp.setAttribute('bg-color','transparent');
         fp.setAttribute('default', f.name);
         // уникальное имя: компонент регистрирует @font-face глобально, одинаковые имена мешают друг другу
         fp.setAttribute('family-name', 'mfp-' + container.dataset.idx);
