@@ -1,0 +1,7 @@
+# Рабочие файлы — не публикуются
+data/
+scripts/
+review.html
+*.command
+.claude/
+.DS_Store
