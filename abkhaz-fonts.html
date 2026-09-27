@@ -305,7 +305,7 @@ setTimeout(() => {
 <div class="wrap">
 <header>
   <h1>Аԥсуа шрифтқәа</h1>
-  <p class="lede">Каталог составлен по результатам перебора более 400 тысяч шрифтов с крупнейших площадок — MyFonts и Google Fonts. <span id="lede-sites">Также проверены сайты Type Department (175 шрифтов), TypeType (77 шрифтов), ParaType (1390 шрифтов), type.today (316 шрифтов), Brownfox (22 шрифта), Contrast Foundry (26 шрифтов), Letterhead (167 шрифтов), Russian Fonts (14 шрифтов) и Шрифтовик (30 шрифтов).</span> <span id="lede-found">Отобраны все шрифты, в которых есть абхазские буквы: 94 из Google Fonts, 323 из MyFonts, 1 из Type Department, 13 из ParaType, 2 из type.today и 2 из Contrast Foundry.</span> Каждый шрифт набирает один и тот же текст. Буквы, которых нет, отмечены красным.</p>
+  <p class="lede">Каталог составлен по результатам перебора более 400 тысяч шрифтов с крупнейших площадок — MyFonts и Google Fonts. <span id="lede-sites">Также проверены сайты Type Department (175 шрифтов), TypeType (77 шрифтов), ParaType (1390 шрифтов), type.today (316 шрифтов), Brownfox (22 шрифта), Contrast Foundry (26 шрифтов), Letterhead (167 шрифтов), Russian Fonts (14 шрифтов), Шрифтовик (30 шрифтов) и fa-fa-fa.xyz (3 шрифта).</span> <span id="lede-found">Отобраны все шрифты, в которых есть абхазские буквы: 94 из Google Fonts, 323 из MyFonts, 1 из Type Department, 13 из ParaType, 2 из type.today и 2 из Contrast Foundry.</span> Каждый шрифт набирает один и тот же текст. Буквы, которых нет, отмечены красным.</p>
   <div class="summary">
     <div class="sum-total"><b id="s-total"></b><span id="s-total-lbl"></span></div>
     <div class="sum-status"><div class="sum-head">Поддержка алфавита</div><div class="sum-bar" id="bar-status"></div><ul class="sum-legend" id="leg-status"></ul></div>
@@ -375,6 +375,7 @@ setTimeout(() => {
   <p><b>Letterhead.</b> Тестера и файлов шрифтов на сайте нет, шрифты показаны картинками. Прочитаны описания набора знаков на всех 167 страницах: у 153 это «алфавит русского языка»; у остальных просмотрены картинки с полным набором знаков — там русская или славянская кириллица, абхазских букв нет. По четырём страницам нет ни описания, ни картинки набора. Новых шрифтов в каталоге нет.</p>
   <p><b>Russian Fonts.</b> Проверены все 14 гарнитур по файлам тестера. У пяти файлы полные — украинская, белорусская, киргизская, у RF Gora и RF Dobrozrachniy ещё сербская, татарская и казахская кириллица, но абхазских букв нет (не больше 10 из 28). У девяти файлы тестера урезаны до русского алфавита; по заявленной на сайте языковой поддержке (русский, белорусский, украинский, киргизский, молдавский) абхазского у них тоже нет. Новых шрифтов в каталоге нет.</p>
   <p><b>Шрифтовик.</b> Тестера и веб-шрифтов на сайте нет. У 22 из 30 шрифтов на странице есть автоматический список поддерживаемых языков — из кириллических там русский, белорусский, болгарский, македонский, сербский, осетинский и чеченский, абхазского нет ни у одного. У восьми шрифтов списка нет; проверить их можно только по пробным версиям. Новых шрифтов в каталоге нет.</p>
+  <p><b>fa-fa-fa.xyz.</b> У Фёдора Аброськина три шрифта — Nada, René и Resin; тестера и файлов на сайте нет. По описаниям и картинке набора знаков у всех базовая кириллица (у Nada ещё белорусская и украинская, у Resin — сербская и македонская), абхазских букв нет. Новых шрифтов в каталоге нет.</p>
   <p>Наличие буквы в шрифте ещё не гарантирует её качества: оценка рисунка знаков проводится отдельно, вручную.</p>
   <p class="author">Автор — <b>Джонуа Дамей</b></p>
 </footer>
@@ -421,7 +422,7 @@ function summary(bar,legend,items,open){
 summary("#bar-status","#leg-status",[["Полная",cnt("full"),"var(--accent)"],["Нет только Ԥ ԥ",cnt("pe"),"var(--warn)"],["Не хватает 1–4 букв",cnt("part"),"var(--bad)"]]);
 summary("#bar-src","#leg-src",Object.keys(SRC).map(k=>[SRC[k],srcCnt(k),"var(--"+k+")"]).sort((a,b)=>b[1]-a[1]));
 // Сайты, проверенные помимо MyFonts и Google Fonts: [название, сколько шрифтов на сайте]. Первая фраза шапки про MyFonts и Google Fonts — статичная
-const CHECKED=[["Type Department",175],["TypeType",77],["ParaType",1390],["type.today",316],["Brownfox",22],["Contrast Foundry",26],["Letterhead",167],["Russian Fonts",14],["Шрифтовик",30]];
+const CHECKED=[["Type Department",175],["TypeType",77],["ParaType",1390],["type.today",316],["Brownfox",22],["Contrast Foundry",26],["Letterhead",167],["Russian Fonts",14],["Шрифтовик",30],["fa-fa-fa.xyz",3]];
 const joinRu=a=>a.length>1?a.slice(0,-1).join(", ")+" и "+a[a.length-1]:a.join("");
 $("#lede-sites").textContent="Также проверены сайты "+joinRu(CHECKED.map(([n,c])=>n+" ("+c+" "+plural(c,"шрифт","шрифта","шрифтов")+")"))+".";
 $("#lede-found").textContent="Отобраны все шрифты, в которых есть абхазские буквы: "+joinRu(Object.keys(SRC).map(k=>srcCnt(k)+" из "+SRC[k]))+".";
