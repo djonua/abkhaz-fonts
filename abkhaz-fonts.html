@@ -112,7 +112,7 @@ body{background:var(--bg);color:var(--ink);font:15px/1.5 var(--ui);margin:0}
 .wrap{max-width:1440px;margin:0 auto;padding-inline:20px;padding-block:32px 64px}
 header h1{font:600 clamp(40px,7vw,76px)/1 var(--disp);margin:0 0 6px;letter-spacing:-.01em;text-wrap:balance}
 header h1 span{color:var(--accent)}
-.lede{color:var(--muted);max-width:68ch;margin:0 0 22px}
+.lede{color:var(--muted);margin:0 0 22px}
 /* сводка: итог, полоса поддержки алфавита и полоса источников; источники добавляются в сетку подписей */
 .summary{display:grid;grid-template-columns:150px minmax(220px,1fr) minmax(300px,2.4fr);gap:18px 32px;align-items:start;margin:0 0 26px;padding:18px 20px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
 .sum-total b{display:block;font:600 44px/1 var(--ui);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
@@ -311,7 +311,7 @@ setTimeout(() => {
 <div class="wrap">
 <header>
   <h1>Аԥсуа шрифтқәа</h1>
-  <p class="lede">Каталог составлен по результатам перебора более 400 тысяч шрифтов с крупнейших площадок — MyFonts и Google Fonts. <span id="lede-sites">Также проверены сайты Type Department (175 шрифтов), TypeType (77 шрифтов), ParaType (1390 шрифтов), type.today (316 шрифтов), Brownfox (22 шрифта), Contrast Foundry (26 шрифтов), Letterhead (167 шрифтов), Russian Fonts (14 шрифтов), Шрифтовик (30 шрифтов), fa-fa-fa.xyz (3 шрифта), nicetype.ru (29 шрифтов) и Schrift Foundry (6 шрифтов).</span> <span id="lede-found">Отобраны все шрифты, в которых есть абхазские буквы: 94 из Google Fonts, 323 из MyFonts, 1 из Type Department, 13 из ParaType, 1 из type.today, 2 из Contrast Foundry, 1 из Schrift Foundry и 1 из Шрифтовика.</span> Каждый шрифт набирает один и тот же текст. Буквы, которых нет, отмечены красным.</p>
+  <p class="lede">Каталог составлен по результатам перебора более 400 тысяч шрифтов с крупнейших площадок — MyFonts и Google Fonts. <span id="lede-sites">Также проверены сайты Type Department (175 шрифтов), TypeType (77 шрифтов), ParaType (1390 шрифтов), type.today (316 шрифтов), Brownfox (22 шрифта), Contrast Foundry (26 шрифтов), Letterhead (167 шрифтов), Russian Fonts (14 шрифтов), Шрифтовик (30 шрифтов), fa-fa-fa.xyz (3 шрифта), nicetype.ru (29 шрифтов) и Schrift Foundry (6 шрифтов).</span> Отобраны все шрифты, в которых есть абхазские буквы.</p>
   <div class="summary">
     <div class="sum-total"><b id="s-total"></b><span id="s-total-lbl"></span></div>
     <div class="sum-status"><div class="sum-head">Поддержка алфавита</div><div class="sum-bar" id="bar-status"></div><ul class="sum-legend" id="leg-status"></ul></div>
@@ -395,7 +395,6 @@ const GF_FILES={"Akt":{"d":"ofl/akt","f":["Akt[wght].ttf"],"l":"OFL.txt","s":353
 const CAT={SANS_SERIF:"Без засечек",SERIF:"С засечками",MONOSPACE:"Моноширинный",DISPLAY:"Акцидентный",HANDWRITING:"Рукописный"};
 const ST={full:"Полная",pe:"Нет только Ԥ",part:"Неполная"};
 const SRC={gf:"Google Fonts",mf:"MyFonts",td:"Type Department",pt:"ParaType",ttd:"type.today",cf:"Contrast Foundry",sf:"Schrift Foundry",sv:"Шрифтовик"};
-const SRC_GEN={sv:"Шрифтовика"}; // для фразы «N из …» в шапке, если название склоняется
 const ABC="Ӷ ӷ Ӡ ӡ Қ қ Ҟ ҟ Ԥ ԥ Ҭ ҭ Ҳ ҳ Ҵ ҵ Ҷ ҷ Ҽ ҽ Ҿ ҿ Ҩ ҩ Џ џ Ә ә".split(" ");
 const PRE=[
   "Дызусҭзаалак, ауаатәыҩсатә ҭаацәара иалахәу иҳаҭыри, иара иузиҟәымҭхо имоу изинқәеи, ахақәиҭреи, аиашареи",
@@ -434,7 +433,6 @@ summary("#bar-src","#leg-src",Object.keys(SRC).map(k=>[SRC[k],srcCnt(k),"var(--"
 const CHECKED=[["Type Department",175],["TypeType",77],["ParaType",1390],["type.today",316],["Brownfox",22],["Contrast Foundry",26],["Letterhead",167],["Russian Fonts",14],["Шрифтовик",30],["fa-fa-fa.xyz",3],["nicetype.ru",29],["Schrift Foundry",6]];
 const joinRu=a=>a.length>1?a.slice(0,-1).join(", ")+" и "+a[a.length-1]:a.join("");
 $("#lede-sites").textContent="Также проверены сайты "+joinRu(CHECKED.map(([n,c])=>n+" ("+c+" "+plural(c,"шрифт","шрифта","шрифтов")+")"))+".";
-$("#lede-found").textContent="Отобраны все шрифты, в которых есть абхазские буквы: "+joinRu(Object.keys(SRC).map(k=>srcCnt(k)+" из "+(SRC_GEN[k]||SRC[k])))+".";
 
 // Chips
 function chips(el,keys,label,set,count,cls){
